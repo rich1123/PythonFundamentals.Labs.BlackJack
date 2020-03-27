@@ -4,7 +4,7 @@
 
 * Use classes
 * Use inheritance 
-* Use modules (in separate files)
+* Use modules (create your own)
 * Unit test all of the things!!!
 
 
