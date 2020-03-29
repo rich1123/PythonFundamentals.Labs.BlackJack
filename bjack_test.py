@@ -1,9 +1,18 @@
 import unittest
+import main-app
 
-def test_hand_val():
+class TestBjack(unittest.TestCase):
 
+test_dict = {
+    ('A', 1), ('2', 2), ('3', 3), ('4', 4),
+    ('5', 5), ('6', 6), ('7', 7), ('8', 8),
+}
 
-    def hand_val(d: dict):
-        for v in d:
-            sum(d.values())
-            return sum
+    def test_move_card(self):
+        result = move_card()
+
+    ht_dict = {}
+    # hf_dict = {}
+
+    for face, value in test_dict:
+        with self.assertEqual()
