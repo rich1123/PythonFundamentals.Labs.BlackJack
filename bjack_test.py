@@ -1,4 +1,6 @@
 import unittest
+from mock import Mock
+from unittest.mock import patch
 import main_app
 
 class TestBjack(unittest.TestCase):
@@ -13,8 +15,23 @@ class TestBjack(unittest.TestCase):
 
         ht_dict = {}
 
-        result = main_app.move_card(test_dict, ht_dict, card= "'9 of C': 9")
-        self.assertEqual(result, ht_dict[card]={'9 of C': 9})
+        test = {'key': 'value'}
+        original = ht_dict[test].copy()
+        with patch.dict(test, {'9 of C': 9}, clear=True):
+            assert test == original
+
+        # result = main_app.move_card(test_dict, ht_dict, card="'9 of C': 9")
+        # self.assertEqual(result, ht_dict={)
+
+        # mock = Mock(result=ht_dict[{'9 of C': 9}])
+        # try:
+        #     mock.assert_called_with(result=ht_dict[{'9 of C': 9}])
+
+        # (from_hand: dict, to_hand: dict, card: str):
+        #     to_hand[card] = from_hand.pop(card)
+
+
+
 
     #
     # for face, value in test_dict:
