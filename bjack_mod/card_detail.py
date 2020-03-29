@@ -38,4 +38,11 @@ print(deck)
 # print()
 
 
-card_detail()
+def main():
+    card_detail()
+
+#
+#
+#
+if __name__ == '__main__':
+    main()
