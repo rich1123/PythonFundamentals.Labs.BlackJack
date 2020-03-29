@@ -1,18 +1,21 @@
 import unittest
-import main-app
+import main_app
 
 class TestBjack(unittest.TestCase):
 
-test_dict = {
-    ('A', 1), ('2', 2), ('3', 3), ('4', 4),
-    ('5', 5), ('6', 6), ('7', 7), ('8', 8),
-}
-
     def test_move_card(self):
-        result = move_card()
+        test_dict = \
+        {'9 of C': 9,
+                 '6 of C': 6,
+                 '8 of C': 8,
+                 '7 of C': 7,
+                 }
 
-    ht_dict = {}
-    # hf_dict = {}
+        ht_dict = {}
 
-    for face, value in test_dict:
-        with self.assertEqual()
+        result = main_app.move_card(test_dict, ht_dict, card= "'9 of C': 9")
+        self.assertEqual(result, ht_dict[card]={'9 of C': 9})
+
+    #
+    # for face, value in test_dict:
+    #     with self.assertEqual(move_card = )
