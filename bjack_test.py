@@ -14,7 +14,7 @@ class TestBjack(unittest.TestCase):
         ht_dict = {}
 
         result = main_app.move_card(test_dict, ht_dict, card= "'9 of C': 9")
-        self.assertEqual(result, ht_dict[card]={'9 of C': 9})
+        self.assertEqual(result, ht_dict[card]= test_dict.)
 
     #
     # for face, value in test_dict:
