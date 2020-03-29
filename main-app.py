@@ -4,7 +4,6 @@ import random
 import numpy as np
 
 
-
 comp_hand = {}
 
 player_hand = {}
@@ -34,36 +33,49 @@ def intro():
     return c_card, p_card
 
 
-def hands(c_card, p_card):
+def comp_build(c_card: set):
+    comp_hand.update(c_card)
+    return comp_hand
+
+
+def player_build(p_card: set):
+    player_hand.update(p_card)
+    return player_hand
+
+
+def hand_val(comp_hand: dict):
+    for k, v in comp_hand:
+        sum(comp_hand.values(k))
+        return sum
+
+
+def hand_val(player_hand: dict):
+    for k, v in player_hand:
+        sum(player_hand.values(v))
+        return sum
+
+
+def hands(comp_hand, player_hand):
     print("Welcome to my BlackJack table\n")
-    comp_build(c_card)
+    comp_build(comp_hand)
     print(f"Dealer's Hand showing {hand_val(comp_hand)}")
-    player_build(p_card)
+    player_build(player_hand)
     input("")
 
 
-def hand_val(d: dict):
-    for v in d:
-        sum(d.values())
-        return sum
+
 #
 # def dealer(card):
 #     for card in deck:
 #         comp_hand.update(card)
 
-def comp_build(c_card: set):
-    comp_hand.update((c_card))
-    return comp_hand
 
-def player_build(p_card: set):
-    player_hand.update((p_card))
-    return player_hand
+
 
 def main():
-    # comp_build()
-    # player_build()
     intro()
-
-
+#
+#
+#
 if __name__ == '__main__':
     main()
