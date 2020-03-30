@@ -95,6 +95,28 @@ def input_player_action():
     if action == 'S':
         print(f"Dealers showing {hv(comp_hand)}")
         print(f"...And you're holding {hv(player_hand)}")
+        dealer_play(hv(comp_hand))
+
+def dealer_play(v_sum: int):
+    if v_sum < 15:
+        mv_random_card(comp_hand)
+        print(f"Dealers showing {hv(comp_hand)}")
+        dealer_play(v_sum)
+    if v_sum in range (15, 22):
+        print(f"Dealers showing {hv(comp_hand)}")
+        winner()
+    if v_sum > 21:
+        print(f"Dealer busts {hv(comp_hand)}... Winner!!!")
+
+def winner():
+    if hv(comp_hand) == hv(player_hand):
+        dealer_play(hv(comp_hand))
+    if hv(comp_hand) > hv(player_hand):
+        print(f"Dealer's high {hv(comp_hand)} to {hv(player_hand)}... Loser!!!")
+        new_round()
+    if hv(comp_hand) < hv(player_hand):
+        print(f"Dealer's low {hv(comp_hand)} to {hv(player_hand)}... Winner!!!")
+        new_round()
 
 
 def new_round():

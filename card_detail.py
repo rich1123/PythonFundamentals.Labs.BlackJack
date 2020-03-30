@@ -23,6 +23,11 @@ def blackjack(v_sum: int):
         print(f"Big Winner!!! {v_sum}")
     else:
         pass
+#
+# def dealer_play(v_sum: int)
+#     if v_sum < 15:
+#         mv_random_card(comp_hand)
+
 
 #
 # def card_detail():
