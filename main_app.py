@@ -1,7 +1,9 @@
 # import unittest
-import bjack_test
+from card_detail import hand_val as hv
+from card_detail import blackjack as bj
 import random
 import numpy as np
+import sys
 
 
 # player_move = {
@@ -46,10 +48,10 @@ def comp_build(c_card: set):
     return comp_hand
 
 
-def c_hand_val(comp_hand: dict):
-    # for k, v in comp_hand:
-    c_sum = sum(comp_hand.values())
-    return c_sum
+# def c_hand_val(comp_hand: dict):
+#     # for k, v in comp_hand:
+#     c_sum = sum(comp_hand.values())
+#     return c_sum
 
 
 def player_build(p_card: set):
@@ -57,10 +59,10 @@ def player_build(p_card: set):
     return player_hand
 
 
-def p_hand_val(player_hand: dict):
-    # for k, v in player_hand:
-    p_sum = sum(player_hand.values())
-    return p_sum
+# def p_hand_val(player_hand: dict):
+#     # for k, v in player_hand:
+#     p_sum = sum(player_hand.values())
+#     return p_sum
 
 
 def hands(c_sum, p_sum):
@@ -75,7 +77,7 @@ def hands(c_sum, p_sum):
 # def dealer(card):
 #     for card in deck:
 #         comp_hand.update(card)
-
+#
 def show_status():
     print(f"Dealer's Hand showing {comp_hand}")
     print(f"Player showing {player_hand}")
@@ -84,9 +86,19 @@ def input_player_action():
     action = input("[H]it, [S]tand, or [Q]uit ").upper()
     if action == 'H':
         mv_random_card(player_hand)
+        print(f"...And you're holding {hv(player_hand)}")
+        bj(hv(player_hand))
+        input_player_action()
+    if action == 'Q':
+        print("goodbye")
+        sys.exit(0)
+    if action == 'S':
+        print(f"Dealers showing {hv(comp_hand)}")
+        print(f"...And you're holding {hv(player_hand)}")
+
 
 def new_round():
-    undeal_cards( player_hand)
+    undeal_cards(player_hand)
     undeal_cards(comp_hand)
     mv_random_card(player_hand)
     mv_random_card(player_hand)
@@ -99,14 +111,18 @@ def undeal_cards(hand: dict):
         move_card(hand, undealt, card)
 
 
+
+
 def main():
     # intro()
     # build_deck()
     print(undealt)
     mv_random_card(player_hand)
+    mv_random_card(comp_hand)
     mv_random_card(player_hand)
+    mv_random_card(comp_hand)
     print(player_hand)
-    print(p_hand_val(player_hand))
+    print(hv(player_hand))
     print(len(undealt))
     new_round()
     while True:
