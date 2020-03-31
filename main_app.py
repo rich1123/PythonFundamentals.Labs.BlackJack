@@ -117,24 +117,26 @@ class Hit:
 
     def dealer_play(self, v_sum: int):
         if v_sum < 15:
+            mv_random_card(comp_hand)
             print(f"Dealers showing {hv(comp_hand)}")
-            self.dealer_play(v_sum)
+            Hit.dealer_play(self, v_sum)
         if v_sum in range(15, 22):
             # print(f"Dealers showing {hv(comp_hand)}")
-            self.winner()
+            Hit.winner(self)
         if v_sum > 21:
             print(f"Dealer busts {hv(comp_hand)}... Winner!!!")
 
-
     def winner(self):
         if hv(comp_hand) == hv(player_hand):
-            Hit.dealer_play(hv(self, hv(comp_hand)
-       elif hv(comp_hand) > hv(player_hand):
-           print(f"Dealer's high {hv(comp_hand)} to {hv(player_hand)}... Loser!!!")
-           new_round()
-       elif hv(comp_hand) < hv(player_hand):
-           print(f"Dealer's low {hv(comp_hand)} to {hv(player_hand)}... Winner!!!")
-           new_round()
+            # self.dealer_play(hv(comp_hand))
+            print("That's a draw.")
+            new_round()
+            if hv(comp_hand) > hv(player_hand):
+                print(f"Dealer's high {hv(comp_hand)} to {hv(player_hand)}... Loser!!!")
+            new_round()
+            if hv(comp_hand) < hv(player_hand):
+                print(f"Dealer's low {hv(comp_hand)} to {hv(player_hand)}... Winner!!!")
+            new_round()
 
 
 # def test():
