@@ -16,13 +16,13 @@ def hand_val(hand: dict):
     v_sum = sum(hand.values())
     return v_sum
 
-def blackjack(v_sum: int):
-    if v_sum > 21:
-        print(f"You busted: {v_sum}")
-    if v_sum == 21:
-        print(f"Big Winner!!! {v_sum}")
-    else:
-        pass
+# def blackjack(v_sum: int):
+#     if v_sum > 21:
+#         print(f"You busted: {v_sum}")
+#     if v_sum == 21:
+#         print(f"BlackJack!!! {v_sum}")
+#     else:
+#         pass
 #
 # def dealer_play(v_sum: int)
 #     if v_sum < 15:

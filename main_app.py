@@ -5,7 +5,6 @@ import random
 import numpy as np
 import sys
 
-
 # player_move = {
 #     1: "Hit",
 #     2: "Stand",
@@ -27,7 +26,7 @@ for suit in 'H', 'S', 'D', 'C':
         undealt[name] = value
 
 
-def move_card(from_hand: dict, to_hand: dict, card:str):
+def move_card(from_hand: dict, to_hand: dict, card: str):
     to_hand[card] = from_hand.pop(card)
 
 
@@ -77,60 +76,79 @@ def show_status():
 
 
 class Hit:
-    def __init__(self):
-        self.action = input("[H]it, [S]tand, or [Q]uit ").upper()
+    pass
+
+    # def __init__(self):
+    # pass
+    # action = self.action
+    # self.action = input("[H]it, [S]tand, or [Q]uit ").upper()
 
     # def card_action(self):
     #     return self.action
+    # def blackjack(self, v_sum: int):
+    #
+    #     if v_sum > 21:
+    #         print(f"You busted: {v_sum}")
+    #         new_round()
+    #     if v_sum == 21:
+    #         print(f"BlackJack!!! {v_sum}")
+    #         new_round()
+    #     else:
+    #         pass
 
     def input_player_action(self):
-    if input_player_action().action == 'H':
-        mv_random_card(player_hand)
-        print(f"{player_hand}...And you're holding {hv(player_hand)}")
-        input_player_action().blackjack(hv(player_hand))
-        input_player_action()
-    elif action == 'Q':
-        print("goodbye")
-        sys.exit(0)
-    elif action == 'S':
-        print(f"Dealers showing {hv(comp_hand)}")
-        print(f"...And you're holding {hv(player_hand)}")
-        input_player_action().dealer_play(hv(comp_hand))
+        """
 
-    def blackjack(self, v_sum: int):
-
-        if v_sum > 21:
-            print(f"You busted: {v_sum}")
-            new_round()
-        if v_sum == 21:
-            print(f"BlackJack!!! {v_sum}")
-            new_round()
-        else:
-            pass
+        :rtype: object
+        """
+        action = input("[H]it, [S]tand, or [Q]uit ").upper()
+        if action == 'H':
+            mv_random_card(player_hand)
+            print(f"{player_hand}...And you're holding {hv(player_hand)}")
+            blackjack(hv(player_hand))
+            Hit.input_player_action(self)
+        elif action == 'Q':
+            print("goodbye")
+            sys.exit(0)
+        elif action == 'S':
+            print(f"Dealers showing {hv(comp_hand)}")
+            print(f"...And you're holding {hv(player_hand)}")
+            Hit.dealer_play(self, hv(comp_hand))
 
     def dealer_play(self, v_sum: int):
-
         if v_sum < 15:
-            mv_random_card(comp_hand)
             print(f"Dealers showing {hv(comp_hand)}")
             self.dealer_play(v_sum)
         if v_sum in range(15, 22):
-        # print(f"Dealers showing {hv(comp_hand)}")
+            # print(f"Dealers showing {hv(comp_hand)}")
             self.winner()
         if v_sum > 21:
             print(f"Dealer busts {hv(comp_hand)}... Winner!!!")
 
+
     def winner(self):
-
         if hv(comp_hand) == hv(player_hand):
+            Hit.dealer_play(hv(self, hv(comp_hand)
+       elif hv(comp_hand) > hv(player_hand):
+           print(f"Dealer's high {hv(comp_hand)} to {hv(player_hand)}... Loser!!!")
+           new_round()
+       elif hv(comp_hand) < hv(player_hand):
+           print(f"Dealer's low {hv(comp_hand)} to {hv(player_hand)}... Winner!!!")
+           new_round()
 
-            self.dealer_play(hv(comp_hand))
-        elif hv(comp_hand) > hv(player_hand):
-            print(f"Dealer's high {hv(comp_hand)} to {hv(player_hand)}... Loser!!!")
-            new_round()
-        elif hv(comp_hand) < hv(player_hand):
-            print(f"Dealer's low {hv(comp_hand)} to {hv(player_hand)}... Winner!!!")
-            new_round()
+
+# def test():
+
+
+def blackjack(v_sum: int):
+    if v_sum > 21:
+        print(f"You busted: {v_sum}")
+        new_round()
+    if v_sum == 21:
+        print(f"BlackJack!!! {v_sum}")
+        new_round()
+    else:
+        pass
 
 
 def new_round():
@@ -150,9 +168,7 @@ def undeal_cards(hand: dict):
         move_card(hand, undealt, card)
 
 
-
-
-def main():
+def main(self=None):
     print(undealt)
     print("Welcome to the blackjack table")
     mv_random_card(player_hand)
@@ -161,11 +177,11 @@ def main():
     mv_random_card(comp_hand)
     show_status()
     print(len(undealt))
-    Hit.input_player_action()
+    Hit.input_player_action(self)
     new_round()
     while True:
         show_status()
-        Hit.input_player_action()
+        Hit.input_player_action(self)
 
     # comp_build(c_card=tuple)
     # c_hand_val(comp_hand)
