@@ -50,6 +50,11 @@ class TestBjack(unittest.TestCase):
 
         result = main_app.mv_random_card(ht_dict)
         self.assertEqual(result, random.choice(list(test_dict.keys())))
+
+
+
+
+
     #
     # for face, value in test_dict:
     #     with self.assertEqual(move_card = )
